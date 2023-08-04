@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/g0t4/jgsu-spring-petclinic.git', branch: 'main'
+                git url: 'https://github.com/iSaadiqbal/course-jenkins-getting-started.git', branch: 'main'
             }            
         }
         stage('Build') {
@@ -20,7 +20,7 @@ pipeline {
                         body: "Please go to ${BUILD_URL} and verify the build", 
                         attachLog: true, 
                         compressLog: true, 
-                        to: "saad90.linux@gmail.com", 
+                        to: "saad89.linux@gmail.com", 
                     )
                         
                     junit '**/target/surefire-reports/TEST-*.xml'
