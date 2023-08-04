@@ -15,7 +15,7 @@ pipeline {
         
             post {
                 always {
-                   emailext body: 'MY Email Body', subject: 'MY subject', to: 'saad89.linux@gmail.com'
+                   emailext body: 'MY Email Body', subject: '${JOB_NAME}', to: 'saad89.linux@gmail.com'
 
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
