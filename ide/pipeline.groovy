@@ -15,7 +15,12 @@ pipeline {
         
             post {
                 always {
-                   emailext body: 'MY Email Body', subject: '${JOB_NAME}', to: 'saad89.linux@gmail.com'
+                   emailext subject: "Job \'${JOB_NAME}\' (build ${BUILD_NUMBER}) ${currentBuild.result}",
+                        body: "Please go to ${BUILD_URL} and verify the build", 
+                        attachLog: true, 
+                        compressLog: true, 
+                        to: "saad90.linux@gmail.com",
+
 
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
