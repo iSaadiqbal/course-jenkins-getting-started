@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    triggers { pollSCM('* * * * *') }
-    
-    stages {   
+     stages {   
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/iSaadiqbal/jgsu-spring-petclinic.git', branch: 'main' }            
@@ -20,9 +18,9 @@ pipeline {
             steps {archiveArtifacts 'target/*.jar' }
         }
     }
-        post {
-                always {
-                    emailext (
+     post {
+          always {
+             emailext (
                        subject: "Job '${JOB_NAME}' (build ${BUILD_NUMBER}) ${currentBuild.result}",
                         body: "Please go to ${BUILD_URL} and verify the build", 
                         attachLog: true, 
