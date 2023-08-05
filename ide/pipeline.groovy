@@ -5,7 +5,7 @@ pipeline {
     stages {   
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/iSaadiqbal/jgsu-spring-petclinic.git, branch: 'main' }            
+                git url: 'https://github.com/iSaadiqbal/jgsu-spring-petclinic.git', branch: 'main' }            
         }
         stage('compile') {
             steps {sh './mvnw clean compile'}
